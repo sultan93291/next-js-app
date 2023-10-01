@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+.sultan {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  
+}
+
+.box{
+    border: 1px solid whitesmoke;
+    box-shadow: #555 1px 5px 5px 5px;
+    height: 540px;
+    width: 350px;
+    padding: 15px;
+    border-radius: 15px;
+
+    hr{
+      
+      color: red;
+    }
+
+    h1{
+     
+      padding-left: 88px;
+      padding-bottom: 2px;
+    }
+
+    #Link1{
+      font-size: 20px;
+      padding-left: 85px;
+      text-decoration: underline;
+      font-weight: bold;
+      padding-top: 25px;
+      
+
+    }
+    
+  }
+
+

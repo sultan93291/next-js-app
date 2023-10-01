@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sultan1 {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.box1 {
+  border: 1px solid whitesmoke;
+  box-shadow: #555 1px 5px 5px 5px;
+  padding: 15px;
+  border-radius: 15px;
+}
+.box1 hr {
+  color: rgba(205, 122, 50, 0.801);
+}
+.box1 h1 {
+  padding-top: 2px;
+  padding-left: 125px;
+  padding-bottom: 2px;
+}
+.box1 #Link {
+  font-size: 20px;
+  padding-left: 95px;
+  text-decoration: underline;
+  font-weight: bold;
+  padding-top: 18px;
+}
