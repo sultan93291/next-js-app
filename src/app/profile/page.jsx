@@ -48,6 +48,10 @@ export default function ProfilePage() {
           className="btn btn-danger p-2 ms-5 "
         > getUserDetails </button>
       </div>
+
+      
+
+
     </div>
   );
 }

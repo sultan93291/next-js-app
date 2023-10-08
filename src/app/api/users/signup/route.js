@@ -1,18 +1,23 @@
 import { conncect } from "@/dbConfig/dbConfig";
+import { sendEmail } from "@/helpers/mailer";
+import { NextResponse } from "next/server";
 import Client from "@/models/userModel";
 import bcrypt from "bcryptjs";
 
 conncect();
 
-export async function POST(req, res) {
+export async function POST(req) {
   try {
     const reqBody = await req.json();
     const { username, password, email } = reqBody;
     const user = await Client.findOne({ email });
     if (user) {
-      return new Response(JSON.stringify(`message : user already existed`), {
-        status: 500,
-      });
+      return new NextResponse(
+        JSON.stringify(`message : user already existed`),
+        {
+          status: 400,
+        }
+      );
     }
 
     // hash password
@@ -28,18 +33,26 @@ export async function POST(req, res) {
     });
 
     const savedUser = await newUser.save();
-    console.log(savedUser);
 
-    return new Response(
-      JSON.stringify(`Message: Successfully created user ${savedUser} ` ),
+    // send email verification
+
+    await sendEmail({
+      email: email,
+      emailType: `VERIFY`,
+      userId: savedUser._id,
+    });
+
+    return new NextResponse(
+      JSON.stringify({
+        message: `User Created successfully`,
+        success: true,
+        savedUser,
+      }),
       { status: 200 }
     );
-  } catch (e) {
-    return new Response(
-      JSON.stringify(`Message: Error creating user`, e.message),
-      {
-        status: 500,
-      }
-    );
+  } catch (error) {
+    return new NextResponse(JSON.stringify(error.stack), {
+      status: 500,
+    });
   }
 }

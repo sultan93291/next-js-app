@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { toast } from "react-hot-toast";
 import "bootstrap/dist/css/bootstrap.css";
 import "@/app/sass/signup.css";
 
@@ -27,7 +26,7 @@ export default function SignupPage() {
       console.log("sign up success ", response.data);
       router.push("/login");
     } catch (error) {
-      console.log("sign up failed", error.message);
+      console.log(error);
     } finally {
       setLoading(false);
     }

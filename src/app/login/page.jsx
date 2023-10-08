@@ -17,6 +17,10 @@ export default function ProfilePage() {
   const [buttonDisabled, SetbuttonDisabled] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
 
+  const forgotpass = async () => {
+    router.push("/frogpass");
+  };
+
   const onLogIn = async () => {
     try {
       setLoading(true);
@@ -76,8 +80,15 @@ export default function ProfilePage() {
           placeholder="password"
           className=" form-control text-black  fs-5 "
         />{" "}
-        <button className=" btn btn-success w-100 mt-3 p-2 " onClick={onLogIn}>
+        <button
+          className=" btn btn-success w-100 mt-3 p-2 me-1 "
+          onClick={onLogIn}
+        >
           {buttonDisabled ? "!Log In " : "Log In "}
+        </button>
+        <button className="btn btn-danger w-100 mt-3 p-2" onClick={forgotpass}>
+          {" "}
+          Forgot Password ?{" "}
         </button>
         <Link href={"/signup"} id="Link" className=" icon-link icon-link-hover">
           Visit Sign up page
